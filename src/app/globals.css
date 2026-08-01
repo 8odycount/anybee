@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/* Class-based dark mode — driven by the no-flash script in app/layout.tsx */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+   Light: warm paper. Dark: deep slate-black. Accent: bee amber.
+--------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  --bg: #f6f6f4;
+  --bg-elevated: #ffffff;
+  --surface: rgba(10, 12, 16, 0.028);
+  --surface-strong: rgba(10, 12, 16, 0.055);
+  --fg: #08090c;
+  --fg-muted: #59616f;
+  --fg-subtle: #8b93a1;
+  --hairline: rgba(10, 12, 16, 0.1);
+  --hairline-strong: rgba(10, 12, 16, 0.16);
+  --glow: rgba(255, 184, 0, 0.16);
+  --grid-line: rgba(10, 12, 16, 0.05);
+  --shadow-card: 0 1px 2px rgba(10, 12, 16, 0.04), 0 18px 50px -24px rgba(10, 12, 16, 0.24);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg: #06070a;
+  --bg-elevated: #0b0e13;
+  --surface: rgba(255, 255, 255, 0.032);
+  --surface-strong: rgba(255, 255, 255, 0.06);
+  --fg: #f1f3f6;
+  --fg-muted: #929cae;
+  --fg-subtle: #6a7385;
+  --hairline: rgba(255, 255, 255, 0.09);
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+  --glow: rgba(255, 184, 0, 0.22);
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 30px 80px -40px rgba(0, 0, 0, 0.9);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "SF Pro Display", "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+
+  --color-bg: var(--bg);
+  --color-elevated: var(--bg-elevated);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-subtle: var(--fg-subtle);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+
+  --color-honey-50: #fff9e8;
+  --color-honey-100: #ffefc2;
+  --color-honey-200: #ffe08a;
+  --color-honey-300: #ffcf4d;
+  --color-honey-400: #ffb800;
+  --color-honey-500: #f0a500;
+  --color-honey-600: #c47f00;
+  --color-honey-700: #8f5c00;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--hairline);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: rgba(255, 184, 0, 0.28);
+    color: var(--fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-honey-400);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--hairline-strong);
+    border-radius: 999px;
+    border: 3px solid var(--bg);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fg-subtle);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Extreme optical tightening for the mega display type */
+  .text-display {
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(
+      180deg,
+      var(--fg) 0%,
+      color-mix(in oklab, var(--fg) 62%, transparent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .honey-text {
+    background-image: linear-gradient(135deg, #ffd166 0%, #ffb800 45%, #c47f00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Blueprint grid, radially masked so it dissolves at the edges */
+  .bg-grid {
+    background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 20%, transparent 78%);
+  }
+
+  /* Film-grain overlay: keeps large flat surfaces from banding */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+
+  .hairline-x {
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      var(--hairline-strong) 18%,
+      var(--hairline-strong) 82%,
+      transparent
+    );
+  }
+
+  /* Pointer-tracked spotlight used by the bento cards (--mx/--my set in JS) */
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      var(--glow),
+      transparent 62%
+    );
+    opacity: 0;
+    transition: opacity 500ms var(--ease-premium);
+    pointer-events: none;
+  }
+
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}

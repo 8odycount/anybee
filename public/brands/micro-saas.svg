@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- PLACEHOLDER: Micro-SaaS & AI Tools brand mark -->
+  <rect x="6.5" y="6.5" width="11" height="11" rx="2.6" />
+  <circle cx="12" cy="12" r="2" fill="#FFB800" stroke="none" opacity="0.7" />
+  <path d="M9.6 2.8v3.7M14.4 2.8v3.7M9.6 17.5v3.7M14.4 17.5v3.7M2.8 9.6h3.7M2.8 14.4h3.7M17.5 9.6h3.7M17.5 14.4h3.7" />
+</svg>

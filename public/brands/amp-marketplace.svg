@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- PLACEHOLDER: Audio & Music Marketplace brand mark -->
+  <rect x="2.5" y="4.5" width="19" height="15" rx="3" />
+  <circle cx="9" cy="12" r="3.4" />
+  <circle cx="9" cy="12" r="0.9" fill="#FFB800" stroke="none" />
+  <path d="M16 9.5v5M18.8 8v8" />
+</svg>
