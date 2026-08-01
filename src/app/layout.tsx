@@ -46,17 +46,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fdf9f3" },
-    { media: "(prefers-color-scheme: dark)", color: "#14100c" },
-  ],
+  themeColor: "#0f1210",
 };
 
 /**
  * Runs synchronously during HTML parsing so the stored theme is applied
  * before first paint — no flash, no hydration mismatch.
+ *
+ * Dark is the brand default and wins over the OS preference; only an explicit
+ * choice via the toggle switches to light. To follow the OS instead, swap the
+ * `true` for `window.matchMedia("(prefers-color-scheme: dark)").matches`.
  */
-const themeScript = `(function(){try{var s=localStorage.getItem("anybee-theme");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;var r=document.documentElement;r.classList.toggle("dark",d);r.style.colorScheme=d?"dark":"light";}catch(e){}})();`;
+const themeScript = `(function(){try{var s=localStorage.getItem("anybee-theme");var d=s?s==="dark":true;var r=document.documentElement;r.classList.toggle("dark",d);r.style.colorScheme=d?"dark":"light";}catch(e){}})();`;
 
 export default function RootLayout({
   children,

@@ -17,8 +17,8 @@ function subscribe(onChange: () => void) {
 }
 
 const getSnapshot = () => document.documentElement.classList.contains("dark");
-// Light is the default theme, so SSR markup matches most visitors.
-const getServerSnapshot = () => false;
+// Dark is the default theme, so SSR markup matches most visitors.
+const getServerSnapshot = () => true;
 
 export function ThemeToggle({
   className = "",

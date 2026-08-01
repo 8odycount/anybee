@@ -61,11 +61,13 @@ are exposed to Tailwind through `@theme inline`:
 
 ### Dark / light mode
 
-Dark is the default. The theme is a `dark` class on `<html>`, set before first
-paint by an inline script in `layout.tsx` (no flash, no hydration mismatch) and
-persisted to `localStorage` under `anybee-theme`. Visitors whose OS prefers
-light get light mode automatically. `ThemeToggle` reads the class through
-`useSyncExternalStore`, so every toggle instance stays in sync.
+Dark is the default and deliberately overrides the OS preference — only an
+explicit choice via the toggle switches to light. The theme is a `dark` class
+on `<html>`, set before first paint by an inline script in `layout.tsx` (no
+flash, no hydration mismatch) and persisted to `localStorage` under
+`anybee-theme`. `ThemeToggle` reads the class through `useSyncExternalStore`,
+so every toggle instance stays in sync. The one-line change to follow the OS
+instead is noted above that script.
 
 ### Motion
 

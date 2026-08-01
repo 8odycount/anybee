@@ -72,13 +72,13 @@ function Waveform({ className = "" }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={`flex h-40 items-end justify-between opacity-70 transition-opacity duration-700 group-hover:opacity-100 dark:opacity-50 dark:group-hover:opacity-85 ${className}`}
+      className={`flex h-40 items-end justify-between opacity-70 transition-opacity duration-700 group-hover:opacity-100 dark:opacity-90 ${className}`}
     >
       {bars.map((height, i) => (
         <span
           key={i}
           style={{ height: `${height * 100}%` }}
-          className="from-ember-500/60 via-honey-400/25 w-px rounded-full bg-gradient-to-t to-transparent transition-[height] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          className="from-ember-500/60 via-honey-400/25 dark:from-honey-400/80 dark:via-honey-300/35 w-px rounded-full bg-gradient-to-t to-transparent transition-[height] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
         />
       ))}
     </div>
