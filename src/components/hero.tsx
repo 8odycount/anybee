@@ -27,16 +27,16 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden pt-36 sm:pt-44 lg:pt-52">
-      {/* Blueprint grid + amber horizon */}
+      {/* Warm aurora, blueprint grid, grain */}
+      <div className="aurora -z-30" />
       <div className="bg-grid pointer-events-none absolute inset-0 -z-20" />
-      <div className="pointer-events-none absolute inset-x-0 -top-40 -z-20 h-[540px] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,var(--glow),transparent_70%)]" />
-      <div className="bg-noise pointer-events-none absolute inset-0 -z-10 opacity-[0.035] mix-blend-overlay" />
+      <div className="bg-noise pointer-events-none absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay" />
 
       <div className="mx-auto max-w-6xl px-6">
         {/* Eyebrow */}
         <motion.div {...rise(0.15)} className="flex justify-center">
-          <span className="border-hairline bg-surface text-muted inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[12px] font-medium tracking-[0.02em] backdrop-blur-sm">
-            <Sparkles className="text-honey-400 h-3.5 w-3.5" strokeWidth={1.75} />
+          <span className="glass text-muted inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[12px] font-medium tracking-[0.02em]">
+            <Sparkles className="text-ember-500 h-3.5 w-3.5" strokeWidth={1.35} />
             Venture Studio &amp; Digital Holding
             <span className="bg-hairline-strong mx-0.5 h-3 w-px" />
             <span className="text-subtle">Est. 2026</span>
@@ -44,7 +44,7 @@ export function Hero() {
         </motion.div>
 
         {/* Mega headline */}
-        <h1 className="text-display mt-9 text-center text-[clamp(2.85rem,9vw,7.5rem)] font-extrabold">
+        <h1 className="text-display mt-9 text-center text-[clamp(2.6rem,8vw,6.5rem)] font-medium">
           {headline.map((line, li) => (
             <span key={li} className="block overflow-hidden pb-[0.06em]">
               <motion.span
@@ -112,15 +112,15 @@ export function Hero() {
 
       {/* Numbers strip */}
       <motion.div {...rise(1.15)} className="mx-auto -mt-8 max-w-6xl px-6 sm:-mt-4">
-        <dl className="border-hairline bg-hairline grid grid-cols-2 gap-px overflow-hidden rounded-2xl border md:grid-cols-4">
+        <dl className="border-glass-border bg-hairline grid grid-cols-2 gap-px overflow-hidden rounded-[28px] border shadow-card md:grid-cols-4">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-bg hover:bg-elevated px-6 py-7 text-center transition-colors duration-500 sm:py-8"
+              className="bg-elevated hover:bg-honey-50 dark:hover:bg-surface-strong px-6 py-7 text-center transition-colors duration-500 sm:py-8"
             >
               <dt className="sr-only">{stat.label}</dt>
               <dd>
-                <span className="text-fg block text-[clamp(1.6rem,3vw,2.25rem)] font-semibold tracking-[-0.04em]">
+                <span className="text-fg block text-[clamp(1.6rem,3vw,2.25rem)] font-medium tracking-[-0.04em]">
                   {stat.value}
                 </span>
                 <span className="text-subtle mt-1.5 block text-[11.5px] font-medium tracking-[0.14em] uppercase">

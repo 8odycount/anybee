@@ -5,40 +5,65 @@
 
 /* ---------------------------------------------------------------------------
    Design tokens
-   Light: warm paper. Dark: deep slate-black. Accent: bee amber.
+   Light is the primary theme: warm ivory paper, warm ink, solar accents.
+   Dark is a warm charcoal counterpart — never blue-black.
 --------------------------------------------------------------------------- */
 :root {
   color-scheme: light;
 
-  --bg: #f6f6f4;
-  --bg-elevated: #ffffff;
-  --surface: rgba(10, 12, 16, 0.028);
-  --surface-strong: rgba(10, 12, 16, 0.055);
-  --fg: #08090c;
-  --fg-muted: #59616f;
-  --fg-subtle: #8b93a1;
-  --hairline: rgba(10, 12, 16, 0.1);
-  --hairline-strong: rgba(10, 12, 16, 0.16);
-  --glow: rgba(255, 184, 0, 0.16);
-  --grid-line: rgba(10, 12, 16, 0.05);
-  --shadow-card: 0 1px 2px rgba(10, 12, 16, 0.04), 0 18px 50px -24px rgba(10, 12, 16, 0.24);
+  --bg: #fdf9f3;
+  --bg-elevated: #fffdfa;
+  --surface: rgba(146, 88, 32, 0.045);
+  --surface-strong: rgba(146, 88, 32, 0.085);
+  --fg: #1b1410;
+  --fg-muted: #6d5f52;
+  --fg-subtle: #9c8b7b;
+  --hairline: rgba(140, 92, 40, 0.14);
+  --hairline-strong: rgba(140, 92, 40, 0.24);
+
+  /* Accent that stays legible as *text* on a light ground */
+  --accent-ink: #b4560a;
+
+  --glow: rgba(255, 150, 40, 0.22);
+  --glow-soft: rgba(255, 184, 0, 0.14);
+  --grid-line: rgba(140, 92, 40, 0.07);
+
+  /* Glass panels */
+  --glass: rgba(255, 253, 250, 0.66);
+  --glass-border: rgba(255, 255, 255, 0.75);
+
+  --shadow-card: 0 1px 2px rgba(120, 72, 24, 0.05),
+    0 24px 60px -28px rgba(120, 72, 24, 0.26);
+  --shadow-lift: 0 2px 4px rgba(120, 72, 24, 0.06),
+    0 40px 80px -32px rgba(190, 96, 20, 0.34);
 }
 
 .dark {
   color-scheme: dark;
 
-  --bg: #06070a;
-  --bg-elevated: #0b0e13;
-  --surface: rgba(255, 255, 255, 0.032);
-  --surface-strong: rgba(255, 255, 255, 0.06);
-  --fg: #f1f3f6;
-  --fg-muted: #929cae;
-  --fg-subtle: #6a7385;
-  --hairline: rgba(255, 255, 255, 0.09);
-  --hairline-strong: rgba(255, 255, 255, 0.16);
-  --glow: rgba(255, 184, 0, 0.22);
-  --grid-line: rgba(255, 255, 255, 0.045);
-  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 30px 80px -40px rgba(0, 0, 0, 0.9);
+  --bg: #14100c;
+  --bg-elevated: #1d1811;
+  --surface: rgba(255, 214, 168, 0.05);
+  --surface-strong: rgba(255, 214, 168, 0.095);
+  --fg: #f8f2e9;
+  --fg-muted: #a89a8a;
+  --fg-subtle: #7d7062;
+  --hairline: rgba(255, 214, 168, 0.13);
+  --hairline-strong: rgba(255, 214, 168, 0.24);
+
+  --accent-ink: #ffc44d;
+
+  --glow: rgba(255, 150, 40, 0.3);
+  --glow-soft: rgba(255, 184, 0, 0.2);
+  --grid-line: rgba(255, 214, 168, 0.055);
+
+  --glass: rgba(41, 33, 24, 0.6);
+  --glass-border: rgba(255, 214, 168, 0.14);
+
+  --shadow-card: 0 1px 0 rgba(255, 220, 180, 0.05) inset,
+    0 30px 80px -44px rgba(0, 0, 0, 0.9);
+  --shadow-lift: 0 1px 0 rgba(255, 220, 180, 0.08) inset,
+    0 44px 90px -40px rgba(255, 138, 61, 0.28);
 }
 
 @theme inline {
@@ -55,15 +80,30 @@
   --color-subtle: var(--fg-subtle);
   --color-hairline: var(--hairline);
   --color-hairline-strong: var(--hairline-strong);
+  --color-accent: var(--accent-ink);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
 
-  --color-honey-50: #fff9e8;
-  --color-honey-100: #ffefc2;
-  --color-honey-200: #ffe08a;
-  --color-honey-300: #ffcf4d;
+  /* Solar core — the bee amber from the brief */
+  --color-honey-50: #fff8e9;
+  --color-honey-100: #ffeec6;
+  --color-honey-200: #ffdf94;
+  --color-honey-300: #ffcb57;
   --color-honey-400: #ffb800;
-  --color-honey-500: #f0a500;
-  --color-honey-600: #c47f00;
-  --color-honey-700: #8f5c00;
+  --color-honey-500: #f0a000;
+  --color-honey-600: #c67a00;
+  --color-honey-700: #94590a;
+
+  /* Ember — the warm second note that keeps gradients from going acid */
+  --color-ember-200: #ffd0ab;
+  --color-ember-300: #ffab6e;
+  --color-ember-400: #ff8a3d;
+  --color-ember-500: #f4641b;
+  --color-ember-600: #d24a09;
+
+  /* Blush — used only at the far end of gradients, for iridescence */
+  --color-blush-300: #ffb1a3;
+  --color-blush-400: #ff8f86;
 
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -87,12 +127,12 @@
   }
 
   ::selection {
-    background-color: rgba(255, 184, 0, 0.28);
+    background-color: rgba(255, 138, 61, 0.26);
     color: var(--fg);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-honey-400);
+    outline: 2px solid var(--color-ember-400);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -138,18 +178,117 @@
     background-image: linear-gradient(
       180deg,
       var(--fg) 0%,
-      color-mix(in oklab, var(--fg) 62%, transparent) 100%
+      color-mix(in oklab, var(--fg) 66%, transparent) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
+  /* Solar gradient — amber into ember into blush. The signature accent. */
   .honey-text {
-    background-image: linear-gradient(135deg, #ffd166 0%, #ffb800 45%, #c47f00 100%);
+    background-image: linear-gradient(
+      100deg,
+      #ffb800 0%,
+      #ff8a3d 46%,
+      #ff8f86 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /* ---- Aurora: soft drifting warm light. The "future" signal. ---------- */
+  .aurora {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    /* Keep the middle of the page clean paper — light only at the edges */
+    mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 88%);
+  }
+
+  .aurora::before,
+  .aurora::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(86px);
+    will-change: transform;
+  }
+
+  .aurora::before {
+    width: 48vw;
+    height: 48vw;
+    max-width: 720px;
+    max-height: 720px;
+    top: -30%;
+    left: -16%;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 184, 0, 0.26),
+      rgba(255, 184, 0, 0) 66%
+    );
+    animation: aurora-drift-a 26s ease-in-out infinite alternate;
+  }
+
+  .aurora::after {
+    width: 44vw;
+    height: 44vw;
+    max-width: 680px;
+    max-height: 680px;
+    top: -22%;
+    right: -18%;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 138, 61, 0.2),
+      rgba(255, 143, 134, 0.1) 44%,
+      rgba(255, 143, 134, 0) 70%
+    );
+    animation: aurora-drift-b 32s ease-in-out infinite alternate;
+  }
+
+  .dark .aurora::before {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 184, 0, 0.22),
+      rgba(255, 184, 0, 0) 66%
+    );
+  }
+
+  .dark .aurora::after {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 138, 61, 0.2),
+      rgba(255, 143, 134, 0.1) 44%,
+      rgba(255, 143, 134, 0) 70%
+    );
+  }
+
+  @keyframes aurora-drift-a {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(9%, 7%, 0) scale(1.14);
+    }
+  }
+
+  @keyframes aurora-drift-b {
+    from {
+      transform: translate3d(0, 0, 0) scale(1.06);
+    }
+    to {
+      transform: translate3d(-8%, 9%, 0) scale(0.94);
+    }
+  }
+
+  /* Frosted panel */
+  .glass {
+    background-color: var(--glass);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border-color: var(--glass-border);
   }
 
   /* Blueprint grid, radially masked so it dissolves at the edges */
@@ -182,7 +321,7 @@
     inset: -1px;
     border-radius: inherit;
     background: radial-gradient(
-      420px circle at var(--mx, 50%) var(--my, 50%),
+      440px circle at var(--mx, 50%) var(--my, 50%),
       var(--glow),
       transparent 62%
     );
@@ -197,5 +336,9 @@
 
   .shadow-card {
     box-shadow: var(--shadow-card);
+  }
+
+  .shadow-lift {
+    box-shadow: var(--shadow-lift);
   }
 }

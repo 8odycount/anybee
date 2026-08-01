@@ -47,8 +47,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f6f4" },
-    { media: "(prefers-color-scheme: dark)", color: "#06070a" },
+    { media: "(prefers-color-scheme: light)", color: "#fdf9f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#14100c" },
   ],
 };
 
@@ -56,7 +56,7 @@ export const viewport: Viewport = {
  * Runs synchronously during HTML parsing so the stored theme is applied
  * before first paint — no flash, no hydration mismatch.
  */
-const themeScript = `(function(){try{var s=localStorage.getItem("anybee-theme");var d=s?s==="dark":!window.matchMedia("(prefers-color-scheme: light)").matches;var r=document.documentElement;r.classList.toggle("dark",d);r.style.colorScheme=d?"dark":"light";}catch(e){document.documentElement.classList.add("dark");}})();`;
+const themeScript = `(function(){try{var s=localStorage.getItem("anybee-theme");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;var r=document.documentElement;r.classList.toggle("dark",d);r.style.colorScheme=d?"dark":"light";}catch(e){}})();`;
 
 export default function RootLayout({
   children,

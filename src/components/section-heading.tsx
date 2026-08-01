@@ -26,13 +26,13 @@ export function SectionHeading({
             centered ? "justify-center" : ""
           }`}
         >
-          <span className="bg-honey-400 h-1 w-1 rounded-full" />
+          <span className="bg-ember-400 h-1 w-1 rounded-full" />
           {eyebrow}
         </span>
       </Reveal>
 
       <Reveal delay={0.08}>
-        <h2 className="text-fg mt-5 text-[clamp(2rem,4.6vw,3.5rem)] leading-[1.02] font-semibold tracking-[-0.04em] text-balance">
+        <h2 className="text-fg mt-5 text-[clamp(2rem,4.6vw,3.5rem)] leading-[1.02] font-medium tracking-[-0.04em] text-balance">
           {title}
         </h2>
       </Reveal>

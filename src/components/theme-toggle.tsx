@@ -17,8 +17,8 @@ function subscribe(onChange: () => void) {
 }
 
 const getSnapshot = () => document.documentElement.classList.contains("dark");
-// The pre-paint script defaults to dark, so SSR markup matches most visitors.
-const getServerSnapshot = () => true;
+// Light is the default theme, so SSR markup matches most visitors.
+const getServerSnapshot = () => false;
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
@@ -52,9 +52,9 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
           className="text-muted grid place-items-center"
         >
           {isDark ? (
-            <Moon className="h-[15px] w-[15px]" strokeWidth={1.75} />
+            <Moon className="h-[15px] w-[15px]" strokeWidth={1.35} />
           ) : (
-            <Sun className="h-[15px] w-[15px]" strokeWidth={1.75} />
+            <Sun className="h-[15px] w-[15px]" strokeWidth={1.35} />
           )}
         </motion.span>
       </AnimatePresence>

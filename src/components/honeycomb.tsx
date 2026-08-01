@@ -112,7 +112,7 @@ export function Honeycomb() {
     >
       {/* Ambient bloom behind the lattice */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-        <div className="h-[320px] w-[min(920px,90%)] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(255,184,0,0.20),transparent_65%)] blur-2xl" />
+        <div className="h-[340px] w-[min(960px,92%)] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(255,138,61,0.28),rgba(255,143,134,0.12)_45%,transparent_68%)] blur-2xl" />
       </div>
 
       <motion.svg
@@ -123,8 +123,9 @@ export function Honeycomb() {
       >
         <defs>
           <linearGradient id="hc-live" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#FFD166" />
-            <stop offset="100%" stopColor="#FFB800" />
+            <stop offset="0%" stopColor="#FFC42B" />
+            <stop offset="55%" stopColor="#FF8A3D" />
+            <stop offset="100%" stopColor="#FF8F86" />
           </linearGradient>
 
           <radialGradient id="hc-fade" cx="50%" cy="46%" r="62%">
@@ -137,9 +138,9 @@ export function Honeycomb() {
           </mask>
 
           <linearGradient id="hc-sweep" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#FFB800" stopOpacity="0" />
-            <stop offset="50%" stopColor="#FFD166" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#FFB800" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FF8A3D" stopOpacity="0" />
+            <stop offset="50%" stopColor="#FF8A3D" stopOpacity="1" />
+            <stop offset="100%" stopColor="#FF8A3D" stopOpacity="0" />
           </linearGradient>
 
           <filter id="hc-glow" x="-60%" y="-60%" width="220%" height="220%">
@@ -154,7 +155,7 @@ export function Honeycomb() {
               the honeycomb lines instead of washing over them. */}
           <mask id="hc-lines" maskUnits="userSpaceOnUse">
             <rect width={VIEW_W} height={VIEW_H} fill="black" />
-            <g fill="none" stroke="white" strokeWidth={1.4}>
+            <g fill="none" stroke="white" strokeWidth={1}>
               {cells.map((cell) => (
                 <polygon
                   key={`m-${cell.key}`}
@@ -175,7 +176,7 @@ export function Honeycomb() {
                 points={cell.points}
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={1}
+                strokeWidth={0.7}
                 opacity={0.05 + cell.weight * 0.22}
               />
             ))}
@@ -187,9 +188,9 @@ export function Honeycomb() {
               key={`live-${cell.key}`}
               points={cell.points}
               fill="url(#hc-live)"
-              fillOpacity={0.16}
-              stroke="#FFC42B"
-              strokeWidth={1.5}
+              fillOpacity={0.14}
+              stroke="#FF9A2E"
+              strokeWidth={0.9}
               initial={{ opacity: 0.06 }}
               animate={
                 reduce

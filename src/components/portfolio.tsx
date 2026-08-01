@@ -10,7 +10,7 @@ import { ventures, type Venture } from "@/lib/site";
 
 function BrandMark({ venture }: { venture: Venture }) {
   return (
-    <span className="border-hairline bg-surface grid h-11 w-11 shrink-0 place-items-center rounded-xl border transition-colors duration-500 group-hover:border-honey-400/40">
+    <span className="border-hairline bg-surface grid h-11 w-11 shrink-0 place-items-center rounded-xl border transition-colors duration-500 group-hover:border-ember-400/45">
       {/* Placeholder asset — replace the SVG in /public/brands with the real logo */}
       <Image
         src={venture.logo}
@@ -47,14 +47,14 @@ function CardChrome({ venture }: { venture: Venture }) {
 
 function StagePill({ stage }: { stage: string }) {
   return (
-    <span className="border-honey-400/25 bg-honey-400/10 text-honey-500 dark:text-honey-300 inline-flex w-fit shrink-0 items-center gap-1.5 self-start rounded-full border px-2.5 py-1 text-[11px] font-medium tracking-[0.06em] uppercase">
-      <span className="bg-honey-400 h-1.5 w-1.5 rounded-full" />
+    <span className="border-ember-400/30 bg-ember-400/10 text-accent inline-flex w-fit shrink-0 items-center gap-1.5 self-start rounded-full border px-2.5 py-1 text-[11px] font-medium tracking-[0.06em] uppercase">
+      <span className="bg-ember-400 h-1.5 w-1.5 rounded-full" />
       {stage}
     </span>
   );
 }
 
-const BAR_COUNT = 64;
+const BAR_COUNT = 96;
 
 /**
  * Deterministic pseudo-waveform — evokes the audio marketplace without
@@ -72,13 +72,13 @@ function Waveform({ className = "" }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={`flex h-32 items-end gap-[3px] opacity-60 transition-opacity duration-700 group-hover:opacity-90 dark:opacity-40 dark:group-hover:opacity-75 ${className}`}
+      className={`flex h-40 items-end justify-between opacity-70 transition-opacity duration-700 group-hover:opacity-100 dark:opacity-50 dark:group-hover:opacity-85 ${className}`}
     >
       {bars.map((height, i) => (
         <span
           key={i}
           style={{ height: `${height * 100}%` }}
-          className="from-honey-400/70 via-honey-400/25 flex-1 rounded-full bg-gradient-to-t to-transparent transition-[height] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          className="from-ember-500/60 via-honey-400/25 w-px rounded-full bg-gradient-to-t to-transparent transition-[height] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
         />
       ))}
     </div>
@@ -130,7 +130,7 @@ export function Portfolio() {
 
             <div className="mt-10 flex flex-1 flex-col sm:mt-14">
               <StagePill stage={feature.stage} />
-              <h3 className="text-fg mt-5 text-[clamp(1.65rem,3.1vw,2.6rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-balance">
+              <h3 className="text-fg mt-5 text-[clamp(1.65rem,3.1vw,2.6rem)] leading-[1.08] font-medium tracking-[-0.035em] text-balance">
                 {feature.headline}
               </h3>
               <p className="text-muted mt-5 max-w-xl text-[15px] leading-[1.7] font-light text-pretty">
@@ -140,7 +140,7 @@ export function Portfolio() {
               <dl className="border-hairline mt-9 grid grid-cols-3 gap-4 border-t pt-7">
                 {feature.metrics.map((metric) => (
                   <div key={metric.label}>
-                    <dd className="text-fg text-[clamp(1.15rem,2vw,1.6rem)] font-semibold tracking-[-0.035em]">
+                    <dd className="text-fg text-[clamp(1.15rem,2vw,1.6rem)] font-medium tracking-[-0.035em]">
                       {metric.value}
                     </dd>
                     <dt className="text-subtle mt-1 text-[11px] leading-tight tracking-[0.1em] uppercase">
@@ -162,7 +162,7 @@ export function Portfolio() {
               </div>
 
               {/* Signal graphic — fills the flagship card's lower field */}
-              <div className="mt-auto pt-12">
+              <div className="mt-auto pt-8">
                 <Waveform />
                 <ViewLink />
               </div>
@@ -176,7 +176,7 @@ export function Portfolio() {
 
               <div className="mt-9 flex flex-1 flex-col">
                 <StagePill stage={venture.stage} />
-                <h3 className="text-fg mt-4 text-[1.375rem] leading-[1.15] font-semibold tracking-[-0.03em] text-balance">
+                <h3 className="text-fg mt-4 text-[1.375rem] leading-[1.15] font-medium tracking-[-0.03em] text-balance">
                   {venture.headline}
                 </h3>
                 <p className="text-muted mt-3.5 text-[14.5px] leading-[1.65] font-light text-pretty">
@@ -186,7 +186,7 @@ export function Portfolio() {
                 <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
                   {venture.metrics.map((metric) => (
                     <div key={metric.label}>
-                      <dd className="text-fg text-[1.125rem] font-semibold tracking-[-0.03em]">
+                      <dd className="text-fg text-[1.125rem] font-medium tracking-[-0.03em]">
                         {metric.value}
                       </dd>
                       <dt className="text-subtle mt-0.5 text-[11px] tracking-[0.1em] uppercase">

@@ -4,22 +4,23 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-[-0.01em] whitespace-nowrap transition-[transform,background-color,border-color,box-shadow,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
+  "group relative inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-[-0.01em] whitespace-nowrap transition-[transform,background-position,background-color,border-color,box-shadow,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  // Amber pill with a soft ambient bloom that intensifies on hover
+  // Solar gradient pill. The gradient is oversized and slides on hover, so the
+  // fill feels lit rather than painted.
   primary:
-    "bg-honey-400 text-[#100c00] shadow-[0_0_0_0_rgba(255,184,0,0)] hover:bg-honey-300 hover:shadow-[0_10px_40px_-12px_rgba(255,184,0,0.75)] hover:-translate-y-[1px]",
-  // Hairline glass — reads as "expensive" on both themes
+    "text-[#2a1400] bg-[linear-gradient(100deg,#FFC42B_0%,#FFB800_38%,#FF8A3D_100%)] bg-[length:200%_100%] bg-[position:0%_50%] shadow-[0_8px_28px_-12px_rgba(244,100,27,0.55)] hover:bg-[position:100%_50%] hover:shadow-[0_14px_44px_-12px_rgba(244,100,27,0.7)] hover:-translate-y-[1px]",
+  // Frosted glass — the futuristic counterpart to the solid pill
   secondary:
-    "border border-hairline-strong bg-surface text-fg backdrop-blur-sm hover:bg-surface-strong hover:border-honey-400/50 hover:-translate-y-[1px]",
+    "glass border text-fg hover:border-ember-400/45 hover:-translate-y-[1px] hover:shadow-[0_14px_40px_-20px_rgba(244,100,27,0.45)]",
   ghost: "text-muted hover:text-fg",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-4 text-[13px]",
-  md: "h-11 px-5 text-[14px]",
-  lg: "h-[54px] px-8 text-[15px]",
+  sm: "h-8.5 px-4 text-[12.5px]",
+  md: "h-10 px-5 text-[13.5px]",
+  lg: "h-12 px-7 text-[14px]",
 };
 
 type ButtonProps = {

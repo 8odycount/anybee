@@ -61,7 +61,7 @@ export function SiteNav() {
               className="text-muted hover:text-fg group relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-colors duration-300"
             >
               <span className="relative z-10">{link.label}</span>
-              <span className="bg-honey-400 absolute inset-x-3.5 bottom-1 h-px origin-left scale-x-0 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-hover:opacity-100" />
+              <span className="bg-ember-400 absolute inset-x-3.5 bottom-1 h-px origin-left scale-x-0 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-hover:opacity-100" />
             </a>
           ))}
         </div>
@@ -85,9 +85,9 @@ export function SiteNav() {
             className="border-hairline hover:bg-surface grid h-9 w-9 place-items-center rounded-full border transition-colors duration-300 md:hidden"
           >
             {open ? (
-              <X className="h-4 w-4" strokeWidth={1.75} />
+              <X className="h-4 w-4" strokeWidth={1.35} />
             ) : (
-              <Menu className="h-4 w-4" strokeWidth={1.75} />
+              <Menu className="h-4 w-4" strokeWidth={1.35} />
             )}
           </button>
         </div>
@@ -116,7 +116,7 @@ export function SiteNav() {
                     className="border-hairline text-fg flex items-center justify-between border-b py-3.5 text-lg font-medium tracking-[-0.02em]"
                   >
                     {link.label}
-                    <ArrowUpRight className="text-subtle h-4 w-4" strokeWidth={1.5} />
+                    <ArrowUpRight className="text-subtle h-4 w-4" strokeWidth={1.25} />
                   </a>
                 </motion.li>
               ))}

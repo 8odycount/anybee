@@ -32,23 +32,23 @@ export function Careers() {
               key={role.title}
               variants={revealChild}
               href="#contact"
-              className="border-hairline group hover:border-honey-400/40 flex items-center justify-between gap-6 border-b py-6 transition-colors duration-500 first:border-t"
+              className="border-hairline group hover:border-ember-400/45 flex items-center justify-between gap-6 border-b py-6 transition-colors duration-500 first:border-t"
             >
               <div className="min-w-0">
-                <p className="text-fg group-hover:text-honey-500 dark:group-hover:text-honey-300 text-[clamp(1.05rem,2vw,1.3rem)] font-medium tracking-[-0.02em] transition-colors duration-500">
+                <p className="text-fg group-hover:text-accent text-[clamp(1.05rem,2vw,1.3rem)] font-medium tracking-[-0.02em] transition-colors duration-500">
                   {role.title}
                 </p>
                 <p className="text-subtle mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12.5px] font-light">
                   <span>{role.team}</span>
                   <span className="bg-hairline-strong h-3 w-px" />
                   <span className="inline-flex items-center gap-1.5">
-                    <MapPin className="h-3 w-3" strokeWidth={1.6} />
+                    <MapPin className="h-3 w-3" strokeWidth={1.3} />
                     {role.location}
                   </span>
                 </p>
               </div>
-              <span className="border-hairline text-muted group-hover:border-honey-400/40 group-hover:text-honey-500 dark:group-hover:text-honey-300 grid h-9 w-9 shrink-0 place-items-center rounded-full border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                <ArrowUpRight className="h-4 w-4" strokeWidth={1.6} />
+              <span className="border-hairline text-muted group-hover:border-ember-400/45 group-hover:text-accent grid h-9 w-9 shrink-0 place-items-center rounded-full border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <ArrowUpRight className="h-4 w-4" strokeWidth={1.3} />
               </span>
             </motion.a>
           ))}

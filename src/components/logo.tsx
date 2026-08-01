@@ -23,7 +23,7 @@ export function LogoMark({ className = "h-8 w-8" }: { className?: string }) {
       <path
         d="M16 1.6 28.4 8.8v14.4L16 30.4 3.6 23.2V8.8L16 1.6Z"
         stroke="url(#anybee-mark)"
-        strokeWidth="1.6"
+        strokeWidth="1.1"
         strokeLinejoin="round"
       />
       <path
@@ -34,7 +34,7 @@ export function LogoMark({ className = "h-8 w-8" }: { className?: string }) {
       <path
         d="M12.4 20V12l7.2 8V12"
         stroke="url(#anybee-mark)"
-        strokeWidth="1.9"
+        strokeWidth="1.3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -52,7 +52,7 @@ export function Logo({
   return (
     <span className={`flex items-center gap-2.5 ${className}`}>
       <LogoMark className={markClassName} />
-      <span className="text-fg text-[15px] font-semibold tracking-[-0.02em]">
+      <span className="text-fg text-[15px] font-medium tracking-[-0.02em]">
         {site.name}
       </span>
     </span>

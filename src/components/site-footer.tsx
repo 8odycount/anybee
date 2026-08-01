@@ -28,7 +28,7 @@ export function SiteFooter() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="border-hairline text-muted hover:border-honey-400/40 hover:text-honey-500 dark:hover:text-honey-300 grid h-9 w-9 place-items-center rounded-full border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5"
+                  className="border-hairline text-muted hover:border-ember-400/45 hover:text-accent grid h-9 w-9 place-items-center rounded-full border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5"
                 >
                   <social.Icon className="h-[14px] w-[14px]" />
                 </a>
@@ -54,7 +54,7 @@ export function SiteFooter() {
                         href={link.href}
                         className="text-muted hover:text-fg group inline-flex items-center gap-1.5 text-[13.5px] font-light transition-colors duration-300"
                       >
-                        <span className="bg-honey-400 h-px w-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-2.5" />
+                        <span className="bg-ember-400 h-px w-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-2.5" />
                         {link.label}
                       </a>
                     </li>
@@ -87,8 +87,8 @@ export function SiteFooter() {
                 Terms
               </a>
             </li>
-            <li className="text-honey-500 dark:text-honey-300 inline-flex items-center gap-1.5">
-              <span className="bg-honey-400 h-1.5 w-1.5 rounded-full" />
+            <li className="text-accent inline-flex items-center gap-1.5">
+              <span className="bg-ember-400 h-1.5 w-1.5 rounded-full" />
               All systems operational
             </li>
           </ul>
@@ -100,7 +100,7 @@ export function SiteFooter() {
         aria-hidden="true"
         className="pointer-events-none relative mt-10 h-[13vw] max-h-52 min-h-16 w-full overflow-hidden select-none"
       >
-        <p className="text-display absolute inset-x-0 top-0 translate-y-[-6%] text-center text-[13.4vw] leading-none font-extrabold whitespace-nowrap text-transparent [-webkit-text-stroke:1px_var(--hairline-strong)]">
+        <p className="text-display absolute inset-x-0 top-0 translate-y-[-6%] text-center text-[13.4vw] leading-none font-medium whitespace-nowrap text-transparent [-webkit-text-stroke:1px_var(--hairline-strong)]">
           Anybee Labs
         </p>
         <div className="from-bg absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t to-transparent" />

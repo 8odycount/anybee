@@ -21,18 +21,18 @@ export function InsiderStory() {
 
   return (
     <section id="vision" className="relative scroll-mt-28 overflow-hidden py-28 sm:py-40">
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-[420px] -translate-y-1/2 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,var(--glow),transparent_70%)] opacity-70" />
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-[560px] -translate-y-1/2 bg-[radial-gradient(ellipse_46%_50%_at_50%_50%,var(--glow-soft),transparent_72%)] opacity-70 blur-2xl" />
 
       <div className="mx-auto max-w-4xl px-6">
         <Reveal className="flex justify-center">
           <span className="text-subtle flex items-center gap-2.5 text-[11.5px] font-medium tracking-[0.22em] uppercase">
-            <span className="bg-honey-400 h-1 w-1 rounded-full" />
+            <span className="bg-ember-400 h-1 w-1 rounded-full" />
             The Insider Story
           </span>
         </Reveal>
 
         <Reveal delay={0.06}>
-          <h2 className="text-fg mt-7 text-center text-[clamp(2rem,4.6vw,3.5rem)] leading-[1.04] font-semibold tracking-[-0.04em] text-balance">
+          <h2 className="text-fg mt-7 text-center text-[clamp(2rem,4.6vw,3.5rem)] leading-[1.04] font-medium tracking-[-0.04em] text-balance">
             The name is a thesis,
             <br className="hidden sm:block" /> spoken out loud.
           </h2>
@@ -57,7 +57,7 @@ export function InsiderStory() {
                 transition={{ duration: 0.9, delay: i * 0.14, ease: EASE }}
                 className="border-hairline flex items-baseline gap-5 border-b pb-3"
               >
-                <span className="honey-text text-[clamp(2.25rem,6vw,3.25rem)] leading-none font-extrabold tracking-[-0.05em]">
+                <span className="honey-text text-[clamp(2.25rem,6vw,3.25rem)] leading-none font-medium tracking-[-0.05em]">
                   {word.initial}
                 </span>
                 <span className="text-fg text-[clamp(1.5rem,3.4vw,2rem)] leading-none font-light tracking-[-0.03em]">
@@ -84,7 +84,7 @@ export function InsiderStory() {
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: EASE }}
-          className="via-honey-400/60 mx-auto mt-10 h-20 w-px origin-top bg-gradient-to-b from-transparent to-transparent"
+          className="via-ember-400/70 mx-auto mt-10 h-20 w-px origin-top bg-gradient-to-b from-transparent to-transparent"
         />
 
         {/* ── Step 3: the phonetic turn ──────────────────────────────────── */}
@@ -103,7 +103,7 @@ export function InsiderStory() {
 
         {/* ── Step 4: the resolution ─────────────────────────────────────── */}
         <Reveal delay={0.1} y={34} className="mt-16 text-center">
-          <p className="text-display honey-text text-[clamp(3.25rem,12vw,8rem)] font-extrabold">
+          <p className="text-display honey-text text-[clamp(3.25rem,12vw,8rem)] font-medium">
             Anybee
           </p>
         </Reveal>
