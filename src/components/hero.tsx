@@ -27,7 +27,7 @@ export function Hero() {
   return (
     <section id="top" className="relative isolate">
       <div className="relative flex min-h-[max(680px,94svh)] flex-col justify-end overflow-hidden">
-        {/* Motif — placeholder asset, see docs/hero-image-prompt.md */}
+        {/* Motif — see docs/hero-image.md for provenance and swap instructions */}
         <motion.div
           initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.06 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -44,19 +44,23 @@ export function Hero() {
           />
         </motion.div>
 
-        {/* Scrims: one for the type, one to hand off into the page below */}
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,14,12,0.74)_0%,rgba(10,14,12,0.34)_30%,rgba(10,14,12,0.10)_56%,rgba(10,14,12,0)_80%)]" />
-        <div className="from-bg pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-56 bg-gradient-to-t to-transparent" />
+        {/* Scrims. The motif is an even, fairly bright texture, so the type
+            needs its own darkened corner: one pass from the top for the nav,
+            one from the bottom and one from the left for the headline. */}
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(9,12,10,0.66)_0%,rgba(9,12,10,0.22)_20%,rgba(9,12,10,0)_38%)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(9,12,10,0.88)_0%,rgba(9,12,10,0.60)_22%,rgba(9,12,10,0.24)_44%,rgba(9,12,10,0)_66%)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,12,10,0.62)_0%,rgba(9,12,10,0.26)_32%,rgba(9,12,10,0)_60%)]" />
+        <div className="from-bg pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t to-transparent" />
         <div className="bg-noise pointer-events-none absolute inset-0 -z-10 opacity-[0.06] mix-blend-overlay" />
 
         <div className="mx-auto w-full max-w-6xl px-6 pt-40 pb-16 sm:pb-20">
           <motion.p
             {...rise(0.35)}
-            className="flex items-center gap-3 text-[11.5px] font-medium tracking-[0.24em] text-white/60 uppercase"
+            className="flex items-center gap-3 text-[11.5px] font-medium tracking-[0.24em] text-white/75 uppercase"
           >
             <span className="bg-honey-400 h-1 w-1 rounded-full" />
             Venture Studio &amp; Digital Holding
-            <span className="hidden text-white/25 sm:inline">— Ostfriesland</span>
+            <span className="hidden text-white/45 sm:inline">— Ostfriesland</span>
           </motion.p>
 
           <h1 className="text-display mt-7 max-w-4xl text-[clamp(2.6rem,7.4vw,6rem)] font-medium text-white">
@@ -78,7 +82,7 @@ export function Hero() {
 
           <motion.p
             {...rise(0.8)}
-            className="mt-8 max-w-xl text-[clamp(0.975rem,1.4vw,1.075rem)] leading-[1.7] font-light text-white/70 text-pretty"
+            className="mt-8 max-w-xl text-[clamp(0.975rem,1.4vw,1.075rem)] leading-[1.7] font-light text-white/80 text-pretty"
           >
             <span className="font-normal text-white">Anybee Labs</span>{" "}
             <span className="font-mono text-[0.85em] tracking-[0.14em] text-white/45">

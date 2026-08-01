@@ -11,13 +11,13 @@ export const site = {
 } as const;
 
 /**
- * Hero motif. The file in /public/hero is a placeholder — drop the generated
- * image in at the same path (or point `src` at the new file) and nothing else
- * needs to change. Generation prompt: docs/hero-image-prompt.md
+ * Hero motif. To swap it, drop a new file in /public/hero and point `src` at
+ * it — nothing else needs to change. See docs/hero-image.md for the prompt
+ * that produced this one and the composition the layout depends on.
  */
 export const heroImage = {
-  src: "/hero/ostfriesland.svg",
-  alt: "Dusk over an East Frisian dike, wind turbines on the horizon and a low modern building at the water's edge",
+  src: "/hero/wadden-channels.webp",
+  alt: "Aerial view of tidal creeks branching through the Wadden Sea mudflats at low tide",
 } as const;
 
 export type NavLink = { label: string; href: string };

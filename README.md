@@ -73,14 +73,15 @@ All animation respects `prefers-reduced-motion`, both in CSS and via Framer
 Motion's `useReducedMotion`. `Reveal` / `RevealGroup` in `components/reveal.tsx`
 are the shared scroll-reveal primitives.
 
+## Hero image
+
+`public/hero/wadden-channels.webp`. See **`docs/hero-image.md`** for the prompt
+that produced it, its provenance, and the composition the layout depends on
+(even texture, quiet lower-left, tolerates heavy darkening at the bottom).
+
 ## Asset placeholders
 
 These are placeholders and should be swapped for final artwork:
-
-- `public/hero/ostfriesland.svg` — the hero motif. It is a flat illustration
-  standing in for a photograph; see **`docs/hero-image-prompt.md`** for the
-  generation prompt and the composition constraints the replacement must
-  respect (low horizon, quiet lower-left, building right of centre).
 
 - `public/brands/amp-marketplace.svg`
 - `public/brands/web-suite.svg`
