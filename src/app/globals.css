@@ -11,59 +11,60 @@
 :root {
   color-scheme: light;
 
-  --bg: #fdf9f3;
-  --bg-elevated: #fffdfa;
-  --surface: rgba(146, 88, 32, 0.045);
-  --surface-strong: rgba(146, 88, 32, 0.085);
-  --fg: #1b1410;
-  --fg-muted: #6d5f52;
-  --fg-subtle: #9c8b7b;
-  --hairline: rgba(140, 92, 40, 0.14);
-  --hairline-strong: rgba(140, 92, 40, 0.24);
+  /* Warm sand paper — calm, not a bright SaaS white */
+  --bg: #efeae1;
+  --bg-elevated: #f7f3ec;
+  --surface: rgba(46, 36, 24, 0.04);
+  --surface-strong: rgba(46, 36, 24, 0.08);
+  --fg: #16130f;
+  --fg-muted: #5e574c;
+  --fg-subtle: #8c8476;
+  --hairline: rgba(40, 32, 22, 0.14);
+  --hairline-strong: rgba(40, 32, 22, 0.24);
 
-  /* Accent that stays legible as *text* on a light ground */
-  --accent-ink: #b4560a;
+  /* Burnt ochre — the accent as ink. Never neon. */
+  --accent-ink: #a9601c;
 
-  --glow: rgba(255, 150, 40, 0.22);
-  --glow-soft: rgba(255, 184, 0, 0.14);
-  --grid-line: rgba(140, 92, 40, 0.07);
+  --glow: rgba(201, 102, 44, 0.16);
+  --glow-soft: rgba(229, 163, 60, 0.12);
+  --grid-line: rgba(40, 32, 22, 0.06);
 
-  /* Glass panels */
-  --glass: rgba(255, 253, 250, 0.66);
-  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass: rgba(247, 243, 236, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.6);
 
-  --shadow-card: 0 1px 2px rgba(120, 72, 24, 0.05),
-    0 24px 60px -28px rgba(120, 72, 24, 0.26);
-  --shadow-lift: 0 2px 4px rgba(120, 72, 24, 0.06),
-    0 40px 80px -32px rgba(190, 96, 20, 0.34);
+  --shadow-card: 0 1px 2px rgba(40, 30, 16, 0.05),
+    0 20px 50px -30px rgba(40, 30, 16, 0.28);
+  --shadow-lift: 0 2px 4px rgba(40, 30, 16, 0.06),
+    0 36px 70px -34px rgba(40, 30, 16, 0.34);
 }
 
 .dark {
   color-scheme: dark;
 
-  --bg: #14100c;
-  --bg-elevated: #1d1811;
-  --surface: rgba(255, 214, 168, 0.05);
-  --surface-strong: rgba(255, 214, 168, 0.095);
-  --fg: #f8f2e9;
-  --fg-muted: #a89a8a;
-  --fg-subtle: #7d7062;
-  --hairline: rgba(255, 214, 168, 0.13);
-  --hairline-strong: rgba(255, 214, 168, 0.24);
+  /* Deep dusk over the marsh — warm black with a green cast */
+  --bg: #0f1210;
+  --bg-elevated: #171b18;
+  --surface: rgba(232, 224, 208, 0.045);
+  --surface-strong: rgba(232, 224, 208, 0.09);
+  --fg: #f0ece3;
+  --fg-muted: #9aa096;
+  --fg-subtle: #6f7770;
+  --hairline: rgba(232, 224, 208, 0.12);
+  --hairline-strong: rgba(232, 224, 208, 0.22);
 
-  --accent-ink: #ffc44d;
+  --accent-ink: #e5a33c;
 
-  --glow: rgba(255, 150, 40, 0.3);
-  --glow-soft: rgba(255, 184, 0, 0.2);
-  --grid-line: rgba(255, 214, 168, 0.055);
+  --glow: rgba(201, 102, 44, 0.26);
+  --glow-soft: rgba(229, 163, 60, 0.16);
+  --grid-line: rgba(232, 224, 208, 0.05);
 
-  --glass: rgba(41, 33, 24, 0.6);
-  --glass-border: rgba(255, 214, 168, 0.14);
+  --glass: rgba(23, 27, 24, 0.66);
+  --glass-border: rgba(232, 224, 208, 0.13);
 
-  --shadow-card: 0 1px 0 rgba(255, 220, 180, 0.05) inset,
-    0 30px 80px -44px rgba(0, 0, 0, 0.9);
-  --shadow-lift: 0 1px 0 rgba(255, 220, 180, 0.08) inset,
-    0 44px 90px -40px rgba(255, 138, 61, 0.28);
+  --shadow-card: 0 1px 0 rgba(240, 236, 227, 0.04) inset,
+    0 28px 70px -44px rgba(0, 0, 0, 0.9);
+  --shadow-lift: 0 1px 0 rgba(240, 236, 227, 0.07) inset,
+    0 40px 84px -42px rgba(0, 0, 0, 0.95);
 }
 
 @theme inline {
@@ -84,26 +85,27 @@
   --color-glass: var(--glass);
   --color-glass-border: var(--glass-border);
 
-  /* Solar core — the bee amber from the brief */
-  --color-honey-50: #fff8e9;
-  --color-honey-100: #ffeec6;
-  --color-honey-200: #ffdf94;
-  --color-honey-300: #ffcb57;
-  --color-honey-400: #ffb800;
-  --color-honey-500: #f0a000;
-  --color-honey-600: #c67a00;
-  --color-honey-700: #94590a;
+  /* Ochre — the amber of the brief, pulled back from neon into pigment */
+  --color-honey-100: #f6ead4;
+  --color-honey-200: #edd3a6;
+  --color-honey-300: #ecb964;
+  --color-honey-400: #e5a33c;
+  --color-honey-500: #c98a28;
+  --color-honey-600: #a06a1c;
 
-  /* Ember — the warm second note that keeps gradients from going acid */
-  --color-ember-200: #ffd0ab;
-  --color-ember-300: #ffab6e;
-  --color-ember-400: #ff8a3d;
-  --color-ember-500: #f4641b;
-  --color-ember-600: #d24a09;
+  /* Ember — brick-warm, the second note */
+  --color-ember-200: #e8c3a8;
+  --color-ember-300: #d99a6e;
+  --color-ember-400: #c9662c;
+  --color-ember-500: #a9501f;
+  --color-ember-600: #8a3f18;
 
-  /* Blush — used only at the far end of gradients, for iridescence */
-  --color-blush-300: #ffb1a3;
-  --color-blush-400: #ff8f86;
+  /* Sea — the marsh/North Sea green that keeps the page out of SaaS territory */
+  --color-sea-200: #b9c7bf;
+  --color-sea-400: #6c8a80;
+  --color-sea-500: #4f6f68;
+  --color-sea-600: #3a544e;
+  --color-sea-700: #2a3d39;
 
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -127,7 +129,7 @@
   }
 
   ::selection {
-    background-color: rgba(255, 138, 61, 0.26);
+    background-color: rgba(201, 102, 44, 0.22);
     color: var(--fg);
   }
 
@@ -189,98 +191,13 @@
   .honey-text {
     background-image: linear-gradient(
       100deg,
-      #ffb800 0%,
-      #ff8a3d 46%,
-      #ff8f86 100%
+      #ecb964 0%,
+      #e5a33c 40%,
+      #c9662c 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-  }
-
-  /* ---- Aurora: soft drifting warm light. The "future" signal. ---------- */
-  .aurora {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    /* Keep the middle of the page clean paper — light only at the edges */
-    mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 88%);
-  }
-
-  .aurora::before,
-  .aurora::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(86px);
-    will-change: transform;
-  }
-
-  .aurora::before {
-    width: 48vw;
-    height: 48vw;
-    max-width: 720px;
-    max-height: 720px;
-    top: -30%;
-    left: -16%;
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 184, 0, 0.26),
-      rgba(255, 184, 0, 0) 66%
-    );
-    animation: aurora-drift-a 26s ease-in-out infinite alternate;
-  }
-
-  .aurora::after {
-    width: 44vw;
-    height: 44vw;
-    max-width: 680px;
-    max-height: 680px;
-    top: -22%;
-    right: -18%;
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 138, 61, 0.2),
-      rgba(255, 143, 134, 0.1) 44%,
-      rgba(255, 143, 134, 0) 70%
-    );
-    animation: aurora-drift-b 32s ease-in-out infinite alternate;
-  }
-
-  .dark .aurora::before {
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 184, 0, 0.22),
-      rgba(255, 184, 0, 0) 66%
-    );
-  }
-
-  .dark .aurora::after {
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 138, 61, 0.2),
-      rgba(255, 143, 134, 0.1) 44%,
-      rgba(255, 143, 134, 0) 70%
-    );
-  }
-
-  @keyframes aurora-drift-a {
-    from {
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-    to {
-      transform: translate3d(9%, 7%, 0) scale(1.14);
-    }
-  }
-
-  @keyframes aurora-drift-b {
-    from {
-      transform: translate3d(0, 0, 0) scale(1.06);
-    }
-    to {
-      transform: translate3d(-8%, 9%, 0) scale(0.94);
-    }
   }
 
   /* Frosted panel */

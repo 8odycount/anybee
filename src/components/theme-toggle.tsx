@@ -20,7 +20,14 @@ const getSnapshot = () => document.documentElement.classList.contains("dark");
 // Light is the default theme, so SSR markup matches most visitors.
 const getServerSnapshot = () => false;
 
-export function ThemeToggle({ className = "" }: { className?: string }) {
+export function ThemeToggle({
+  className = "",
+  onImage = false,
+}: {
+  className?: string;
+  /** Light treatment for use over the dark hero photograph */
+  onImage?: boolean;
+}) {
   const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const toggle = useCallback(() => {
@@ -40,7 +47,11 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       onClick={toggle}
       aria-label="Toggle color theme"
       aria-pressed={isDark}
-      className={`border-hairline hover:border-hairline-strong hover:bg-surface relative grid h-9 w-9 place-items-center rounded-full border transition-colors duration-300 ${className}`}
+      className={`relative grid h-9 w-9 place-items-center rounded-full border transition-colors duration-300 ${
+        onImage
+          ? "border-white/30 hover:border-white/60 hover:bg-white/10"
+          : "border-hairline hover:border-hairline-strong hover:bg-surface"
+      } ${className}`}
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
@@ -49,7 +60,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
           animate={{ opacity: 1, rotate: 0, scale: 1 }}
           exit={{ opacity: 0, rotate: 70, scale: 0.6 }}
           transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          className="text-muted grid place-items-center"
+          className={`grid place-items-center ${onImage ? "text-white/75" : "text-muted"}`}
         >
           {isDark ? (
             <Moon className="h-[15px] w-[15px]" strokeWidth={1.35} />

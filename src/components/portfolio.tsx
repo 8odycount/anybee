@@ -10,15 +10,15 @@ import { ventures, type Venture } from "@/lib/site";
 
 function BrandMark({ venture }: { venture: Venture }) {
   return (
-    <span className="border-hairline bg-surface grid h-11 w-11 shrink-0 place-items-center rounded-xl border transition-colors duration-500 group-hover:border-ember-400/45">
+    <span className="grid h-9 w-9 shrink-0 place-items-center">
       {/* Placeholder asset — replace the SVG in /public/brands with the real logo */}
       <Image
         src={venture.logo}
         alt=""
-        width={22}
-        height={22}
+        width={26}
+        height={26}
         unoptimized
-        className="h-[22px] w-[22px] opacity-80 transition-opacity duration-500 group-hover:opacity-100"
+        className="h-[26px] w-[26px] opacity-70 transition-opacity duration-500 group-hover:opacity-100"
       />
     </span>
   );
@@ -47,8 +47,8 @@ function CardChrome({ venture }: { venture: Venture }) {
 
 function StagePill({ stage }: { stage: string }) {
   return (
-    <span className="border-ember-400/30 bg-ember-400/10 text-accent inline-flex w-fit shrink-0 items-center gap-1.5 self-start rounded-full border px-2.5 py-1 text-[11px] font-medium tracking-[0.06em] uppercase">
-      <span className="bg-ember-400 h-1.5 w-1.5 rounded-full" />
+    <span className="text-accent inline-flex w-fit shrink-0 items-center gap-2 self-start text-[11px] font-medium tracking-[0.16em] uppercase">
+      <span className="bg-ember-400 h-1 w-1 rounded-full" />
       {stage}
     </span>
   );
@@ -150,16 +150,14 @@ export function Portfolio() {
                 ))}
               </dl>
 
-              <div className="mt-7 flex flex-wrap gap-2">
-                {feature.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="border-hairline text-subtle rounded-full border px-2.5 py-1 text-[11.5px] font-medium"
-                  >
+              <p className="text-subtle mt-7 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[12px] font-light">
+                {feature.tags.map((tag, i) => (
+                  <span key={tag} className="flex items-center gap-2.5">
+                    {i > 0 ? <span aria-hidden="true">·</span> : null}
                     {tag}
                   </span>
                 ))}
-              </div>
+              </p>
 
               {/* Signal graphic — fills the flagship card's lower field */}
               <div className="mt-auto pt-8">

@@ -45,14 +45,21 @@ export function LogoMark({ className = "h-8 w-8" }: { className?: string }) {
 export function Logo({
   className = "",
   markClassName = "h-8 w-8",
+  onImage = false,
 }: {
   className?: string;
   markClassName?: string;
+  /** Light treatment for use over the dark hero photograph */
+  onImage?: boolean;
 }) {
   return (
     <span className={`flex items-center gap-2.5 ${className}`}>
       <LogoMark className={markClassName} />
-      <span className="text-fg text-[15px] font-medium tracking-[-0.02em]">
+      <span
+        className={`text-[15px] font-medium tracking-[-0.02em] transition-colors duration-300 ${
+          onImage ? "text-white" : "text-fg"
+        }`}
+      >
         {site.name}
       </span>
     </span>

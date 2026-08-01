@@ -33,8 +33,7 @@ src/
     icon.svg          Favicon (brand mark)
   components/
     site-nav.tsx      Floating blurred nav + mobile sheet
-    hero.tsx          Mega headline, CTAs, stats strip
-    honeycomb.tsx     Animated SVG honeycomb hero visual
+    hero.tsx          Image-led hero, headline, CTAs, stats line
     portfolio.tsx     Bento grid of ventures
     ecosystem.tsx     Architect / Scale / Host capabilities
     insider-story.tsx The N-E-B -> Anybee derivation
@@ -77,6 +76,11 @@ are the shared scroll-reveal primitives.
 ## Asset placeholders
 
 These are placeholders and should be swapped for final artwork:
+
+- `public/hero/ostfriesland.svg` — the hero motif. It is a flat illustration
+  standing in for a photograph; see **`docs/hero-image-prompt.md`** for the
+  generation prompt and the composition constraints the replacement must
+  respect (low horizon, quiet lower-left, building right of centre).
 
 - `public/brands/amp-marketplace.svg`
 - `public/brands/web-suite.svg`

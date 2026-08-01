@@ -13,11 +13,16 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [overHero, setOverHero] = useState(true);
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 16);
+      // While over the hero motif the nav has to read on a dark photograph
+      setOverHero(window.scrollY < window.innerHeight * 0.62);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -30,6 +35,8 @@ export function SiteNav() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const onImage = overHero && !open;
 
   return (
     <motion.header
@@ -50,7 +57,7 @@ export function SiteNav() {
           className="rounded-full px-1 py-1 transition-opacity duration-300 hover:opacity-75"
           aria-label="Anybee Labs — home"
         >
-          <Logo />
+          <Logo onImage={onImage} />
         </a>
 
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
@@ -58,7 +65,9 @@ export function SiteNav() {
             <a
               key={link.label}
               href={link.href}
-              className="text-muted hover:text-fg group relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-colors duration-300"
+              className={`group relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-colors duration-300 ${
+                onImage ? "text-white/70 hover:text-white" : "text-muted hover:text-fg"
+              }`}
             >
               <span className="relative z-10">{link.label}</span>
               <span className="bg-ember-400 absolute inset-x-3.5 bottom-1 h-px origin-left scale-x-0 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-hover:opacity-100" />
@@ -70,8 +79,12 @@ export function SiteNav() {
           {/* Wrapper, not `hidden` on the controls themselves — a display
               utility on the element would lose to the component's own. */}
           <div className="hidden items-center gap-2 sm:flex">
-            <ThemeToggle />
-            <Button href="#contact" size="sm">
+            <ThemeToggle onImage={onImage} />
+            <Button
+              href="#contact"
+              size="sm"
+              variant={onImage ? "onImage" : "primary"}
+            >
               Contact Us
               <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Button>
@@ -82,7 +95,11 @@ export function SiteNav() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="border-hairline hover:bg-surface grid h-9 w-9 place-items-center rounded-full border transition-colors duration-300 md:hidden"
+            className={`grid h-9 w-9 place-items-center rounded-full border transition-colors duration-300 md:hidden ${
+              onImage
+                ? "border-white/30 text-white hover:bg-white/10"
+                : "border-hairline hover:bg-surface"
+            }`}
           >
             {open ? (
               <X className="h-4 w-4" strokeWidth={1.35} />
@@ -131,7 +148,7 @@ export function SiteNav() {
                 Contact Us
                 <ArrowUpRight className="h-4 w-4" />
               </Button>
-              <ThemeToggle />
+              <ThemeToggle onImage={onImage} />
             </div>
           </motion.div>
         )}

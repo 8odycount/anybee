@@ -29,17 +29,17 @@ export function Ecosystem() {
           description="Anybee Labs is not a fund and not an agency. We own what we build — which means the platform, the growth engine and the infrastructure are engineered as a single system."
         />
 
-        <RevealGroup className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-3" stagger={0.12}>
+        <RevealGroup className="mt-16 grid gap-12 sm:mt-20 md:grid-cols-3 md:gap-8" stagger={0.12}>
           {capabilities.map((cap, i) => {
             const Icon = icons[cap.icon];
             return (
               <motion.div
                 key={cap.title}
                 variants={revealChild}
-                className="border-hairline bg-elevated/60 hover:border-ember-400/40 hover:bg-elevated group relative rounded-3xl border p-8 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:p-9"
+                className="border-hairline group relative border-t pt-9 pr-6 transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-ember-400/45"
               >
                 <div className="flex items-center justify-between">
-                  <span className="border-hairline bg-surface text-accent grid h-11 w-11 place-items-center rounded-xl border transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5">
+                  <span className="text-accent grid h-8 w-8 place-items-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5">
                     <Icon className="h-[18px] w-[18px]" strokeWidth={1.3} />
                   </span>
                   <span className="text-subtle font-mono text-[11px] tracking-[0.18em]">
@@ -47,14 +47,14 @@ export function Ecosystem() {
                   </span>
                 </div>
 
-                <h3 className="text-fg mt-8 text-[1.5rem] font-medium tracking-[-0.03em]">
+                <h3 className="text-fg mt-7 text-[1.4rem] font-medium tracking-[-0.03em]">
                   {cap.title}
                 </h3>
                 <p className="text-muted mt-3 text-[14.5px] leading-[1.7] font-light text-pretty">
                   {cap.body}
                 </p>
 
-                <span className="bg-ember-400 absolute inset-x-8 bottom-0 h-px origin-left scale-x-0 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-hover:opacity-60" />
+                
               </motion.div>
             );
           })}
